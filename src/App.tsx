@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button } from './components/Button/Button';
 import { ButtonLink } from './components/Button/ButtonLink';
+import { CustomComponent } from './components/Button/CustomComponent';
 
 const customComponentTemplate = `
 // Example custom component
@@ -91,7 +92,8 @@ function App() {
             </li>
           </ul>
           <div className="result">
-            <Button>Button</Button>
+            <CustomComponent isButton={true} />
+            <CustomComponent />
           </div>
         </div>
         <div className="card">
