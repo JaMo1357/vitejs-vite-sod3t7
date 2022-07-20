@@ -1,0 +1,43 @@
+body {
+  font-family: 'Open Sans', -apple-system, 'Helvetica Neue', sans-serif;
+  color: #343a40;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: black;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+li + li {
+  margin-top: 8px;
+}
+
+.card {
+  background-color: #e8ecf7;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.inline {
+  display: inline;
+}
+
+.result {
+  padding: 10px;
+}
