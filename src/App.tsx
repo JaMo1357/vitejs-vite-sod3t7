@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Button } from './components/Button/Button';
+import { ButtonLink } from './components/Button/ButtonLink';
 
 const customComponentTemplate = `
 // Example custom component
@@ -64,7 +65,7 @@ function App() {
             </li>
           </ul>
           <div className="result">
-            <Button>Button</Button>
+            <ButtonLink>Button</ButtonLink>
           </div>
         </div>
         <div className="card">
