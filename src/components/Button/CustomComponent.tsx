@@ -14,14 +14,14 @@ export function CustomComponent({
   numberProp,
   ...others
 }: CustomComponentProps) {
-  console.log('PROPS', stringProp, numberProp, others);
-
+  const buttonReference = React.createRef<HTMLButtonElement>();
+  const linkReference = React.createRef<HTMLAnchorElement>();
   let component;
 
   if (isButton) {
-    component = <Button>I am button</Button>;
+    component = <Button ref={buttonReference} stringProp={stringProp} />;
   } else {
-    component = <ButtonLink>I am link</ButtonLink>;
+    component = <ButtonLink ref={linkReference} stringProp={stringProp} />;
   }
 
   return component;

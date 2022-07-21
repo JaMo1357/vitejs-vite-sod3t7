@@ -1,16 +1,21 @@
 import React from 'react';
 
-interface ButtonLinkProps extends React.HTMLProps<HTMLAnchorElement> {}
+interface ButtonLinkProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  stringProp?: string;
+  numberProp?: number;
+}
 
-export function ButtonLink({ ...others }: ButtonLinkProps) {
-  console.log('others', others);
-
-  return (
+export const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
+  (props, ref) => (
     <a
-      {...others}
+      {...props}
+      ref={ref}
       className="clickable"
       href="https://google.com"
       target="blank"
-    />
-  );
-}
+    >
+      {props.stringProp}
+    </a>
+  )
+);

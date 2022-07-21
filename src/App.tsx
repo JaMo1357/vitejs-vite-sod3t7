@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import { Button } from './components/Button/Button';
 import { ButtonLink } from './components/Button/ButtonLink';
 import { CustomComponent } from './components/Button/CustomComponent';
@@ -15,6 +15,8 @@ function CustomComponent({ stringProp, numberProp, ...others }: CustomComponentP
 `;
 
 function App() {
+  const buttonReference = React.createRef<HTMLButtonElement>();
+
   return (
     <div>
       <header>
@@ -43,7 +45,7 @@ function App() {
             </li>
           </ul>
           <div className="result">
-            <Button>Button</Button>
+            <Button stringProp="Button" />
           </div>
         </div>
         <div className="card">
@@ -66,7 +68,7 @@ function App() {
             </li>
           </ul>
           <div className="result">
-            <ButtonLink>Button</ButtonLink>
+            <ButtonLink stringProp="Button Link" />
           </div>
         </div>
         <div className="card">
@@ -92,8 +94,8 @@ function App() {
             </li>
           </ul>
           <div className="result">
-            <CustomComponent isButton={true} />
-            <CustomComponent />
+            <CustomComponent isButton={true} stringProp="I am button" />
+            <CustomComponent stringProp="I am link" />
           </div>
         </div>
         <div className="card">
@@ -107,7 +109,10 @@ function App() {
             </li>
           </ul>
           <div className="result">
-            <Button>Button</Button>
+            <Button
+              ref={buttonReference}
+              stringProp=" I am button with forwarded ref"
+            />
           </div>
         </div>
       </main>

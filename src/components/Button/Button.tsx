@@ -1,17 +1,22 @@
 import React from 'react';
 
-interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {}
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  stringProp?: string;
+  numberProp?: number;
+}
 
-export function Button({ ...others }: ButtonProps) {
-  console.log('others', others);
-
-  return (
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (props, ref) => (
     <button
-      {...others}
+      type="button"
+      {...props}
+      ref={ref}
       className="clickable"
       onClick={() => {
-        console.log('clicked');
+        alert('Button clicked');
       }}
-    />
-  );
-}
+    >
+      {props.stringProp}
+    </button>
+  )
+);
